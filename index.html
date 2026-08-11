@@ -3,75 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eleazar Mico Villamor | Civil Engineer & BIM Modeler</title>
+    <title>Eleazar Mico Villamor | Portfolio</title>
     <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .splash-link {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-            text-decoration: none;
-            color: white;
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            line-height: 1.6; 
+            padding: 40px 20px; 
+            max-width: 800px; 
+            margin: auto; 
+            color: #2D3748; 
             
-            /* Ginamit ang webbackground.avif */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('webbackground.avif');
+            /* Dito naka-set ang ginawa mong background */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('webbackground.avif');
             background-size: cover;
+            background-attachment: fixed;
             background-position: center;
-            background-repeat: no-repeat;
-            
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            text-align: center;
-            transition: background-image 0.3s ease;
         }
 
-        .splash-link:hover {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5)), url('webbackground.avif');
-            cursor: pointer;
+        .container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
 
-        .splash-title {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        h1 { 
+            color: #1A365D; 
+            border-bottom: 2px solid #1A365D; 
+            padding-bottom: 10px; 
+            margin-top: 0;
         }
 
-        .splash-subtitle {
-            font-size: 1.4rem;
-            margin-bottom: 30px;
-            font-weight: 300;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        h2 { 
+            color: #2B6CB0; 
+            margin-top: 30px; 
+            font-size: 1.25rem;
         }
 
-        .click-prompt {
+        .contact { 
+            color: #4A5568; 
+            font-weight: 600; 
+            margin-bottom: 5px;
+        }
+
+        .sub-contact {
+            color: #718096;
             font-size: 0.95rem;
-            font-weight: bold;
-            color: #ffffff;
-            background-color: rgba(26, 54, 93, 0.85);
-            padding: 12px 24px;
-            border-radius: 6px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            margin-top: 0;
+        }
+
+        /* Ginawang clickable ang buong project box/card */
+        .project-card { 
+            display: block;
+            text-decoration: none;
+            background: #f8fafc; 
+            border-left: 5px solid #2B6CB0; 
+            padding: 18px; 
+            margin-bottom: 15px; 
+            border-radius: 0 8px 8px 0; 
+            border-top: 1px solid #e2e8f0;
+            border-right: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+            transition: all 0.2s ease-in-out;
+        }
+
+        /* Hover effect para halatang nai-click ang buong box */
+        .project-card:hover {
+            background: #ffffff;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            border-left-color: #1A365D;
+        }
+
+        .project-card h3 {
+            margin-top: 0;
+            margin-bottom: 8px;
+            color: #1A365D;
+        }
+
+        .project-card p {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #4A5568;
+            font-size: 0.95rem;
+        }
+
+        .card-link-text { 
+            color: #2B6CB0; 
+            font-weight: bold; 
+            font-size: 0.95rem;
         }
     </style>
 </head>
 <body>
-    <a href="portfolio.html" class="splash-link">
-        <div class="splash-title">Eleazar Mico Villamor</div>
-        <div class="splash-subtitle">Civil Engineering & BIM Modeling Portfolio</div>
-        <div class="click-prompt">Click anywhere to enter portfolio</div>
-    </a>
+    <div class="container">
+        <h1>Eleazar Mico B. Villamor</h1>
+        <p class="contact">Civil Engineering Graduate | Aspiring BIM Modeler / Engineer</p>
+        <p class="sub-contact">Quezon City, Philippines | 09103122262 | ce.micovillamor@gmail.com</p>
+
+        <h2>BIM & Engineering Projects</h2>
+        
+        <!-- Clickable Box 1 -->
+        <a href="YOUR_LINK_HERE" class="project-card" target="_blank">
+            <h3>Autodesk Revit Structural Modeling</h3>
+            <p>3D Structural BIM modeling samples, floor plans, and extracted elevation drawings.</p>
+            <span class="card-link-text">📄 View Project / PDF Portfolio →</span>
+        </a>
+
+        <!-- Clickable Box 2 -->
+        <a href="YOUR_LINK_HERE" class="project-card" target="_blank">
+            <h3>Quantity Estimation & Take-off</h3>
+            <p>Cost estimation and material take-offs using PlanSwift, Bluebeam, and Excel.</p>
+            <span class="card-link-text">📄 View Estimations →</span>
+        </a>
+
+        <h2>Data Operations & Analytics</h2>
+        
+        <!-- Clickable Box 3 -->
+        <a href="YOUR_LINK_HERE" class="project-card" target="_blank">
+            <h3>Power BI Dashboards</h3>
+            <p>Operational metrics tracking and reporting dashboards.</p>
+            <span class="card-link-text">📊 View Dashboard Sample →</span>
+        </a>
+    </div>
 </body>
 </html>
