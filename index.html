@@ -5,125 +5,171 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eleazar Mico Villamor | Portfolio</title>
     <style>
+        /* Modern CSS reset */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            line-height: 1.6; 
-            padding: 40px 20px; 
-            max-width: 800px; 
-            margin: auto; 
-            color: #2D3748; 
-            
-            /* Background image setup */
-            background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('webbackground.avif');
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
+            margin: 0;
+            padding: 0;
+            /* Design: Dark background mula sa iyong reference */
+            background-color: #121212; 
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        .container {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 35px;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        /* Design: Top Navigation Bar */
+        header {
+            background-color: #1a1a1a;
+            padding: 20px 0;
+            width: 100%;
+            border-bottom: 1px solid #333;
         }
 
-        h1 { 
-            color: #1A365D; 
-            border-bottom: 2px solid #1A365D; 
-            padding-bottom: 10px; 
-            margin-top: 0;
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
         }
 
-        h2 { 
-            color: #2B6CB0; 
-            margin-top: 30px; 
-            font-size: 1.25rem;
-        }
-
-        .contact { 
-            color: #4A5568; 
-            font-weight: 600; 
-            margin-bottom: 5px;
-        }
-
-        .sub-contact {
-            color: #718096;
-            font-size: 0.95rem;
-            margin-top: 0;
-        }
-
-        /* Clickable project card */
-        .project-card { 
-            display: block;
+        nav a {
             text-decoration: none;
-            background: #f8fafc; 
-            border-left: 5px solid #2B6CB0; 
-            padding: 18px; 
-            margin-bottom: 15px; 
-            border-radius: 0 8px 8px 0; 
-            border-top: 1px solid #e2e8f0;
-            border-right: 1px solid #e2e8f0;
-            border-bottom: 1px solid #e2e8f0;
-            transition: all 0.2s ease-in-out;
+            color: #a0a0a0; /* Grey color for links */
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
         }
 
-        .project-card:hover {
-            background: #ffffff;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-            border-left-color: #1A365D;
+        nav a:hover {
+            color: #ffffff; /* White on hover */
         }
 
-        .project-card h3 {
-            margin-top: 0;
-            margin-bottom: 8px;
-            color: #1A365D;
+        /* Design: Main Hero Section */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1000px;
+            margin: 80px auto;
+            padding: 0 40px;
+            gap: 60px;
         }
 
-        .project-card p {
-            margin-top: 0;
-            margin-bottom: 10px;
-            color: #4A5568;
-            font-size: 0.95rem;
+        .hero-text {
+            flex: 1;
         }
 
-        .card-link-text { 
-            color: #2B6CB0; 
-            font-weight: bold; 
-            font-size: 0.95rem;
+        /* Design: White big name */
+        h1 { 
+            font-size: 3.5rem;
+            margin: 0 0 20px 0;
+            color: #ffffff;
+        }
+
+        /* Design: Sub-text */
+        p { 
+            color: #a0a0a0;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        /* Design: Circular Photo Frame */
+        .profile-photo-container {
+            flex-shrink: 0;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden; /* Makes the photo circular */
+            border: 4px solid #ffffff; /* white border */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* shadow for depth */
+        }
+
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the photo fills the circle properly */
+        }
+
+        /* Design: Green Button */
+        .cta-button { 
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: #38a169; /* Green color mula sa iyong reference */
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(56, 161, 105, 0.4);
+        }
+
+        .cta-button:hover { 
+            background-color: #48bb78; /* Lighter green on hover */
+            transform: translateY(-2px); /* Slight lift on hover */
+        }
+
+        /* Responsive design for smaller screens */
+        @media (max-width: 800px) {
+            .hero {
+                flex-direction: column-reverse; /* Put text below photo */
+                text-align: center;
+                gap: 40px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .profile-photo-container {
+                width: 200px;
+                height: 200px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Eleazar Mico B. Villamor</h1>
-        <p class="contact">Civil Engineering Graduate | Aspiring BIM Modeler / Engineer</p>
-        <p class="sub-contact">Quezon City, Philippines | 09103122262 | ce.micovillamor@gmail.com</p>
+    <header>
+        <nav>
+            <ul>
+                <!-- Design: Navigation Links -->
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <!-- Pwede mo itong palitan ng actual links mo sa LinkedIn/etc -->
+                <li><a href="#" target="_blank">in</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <h2>BIM & Engineering Projects</h2>
-        
-        <!-- Autodesk Revit Project (Nakalink na sa Google Drive mo) -->
-        <a href="https://drive.google.com/drive/folders/1XjXwcU9agTmntCplXjzcESnkkdB4ukMg?usp=drive_link" class="project-card" target="_blank">
-            <h3>Autodesk Revit Structural Modeling</h3>
-            <p>3D Structural BIM modeling samples, floor plans, and extracted elevation drawings.</p>
-            <span class="card-link-text">📄 View Project / PDF Portfolio →</span>
-        </a>
+    <main class="hero">
+        <div class="hero-text">
+            <!-- Design: Your Name -->
+            <h1>Eleazar Mico B. Villamor</h1>
+            <!-- Design: Intro/Role text -->
+            <p>Civil Engineering Graduate | Aspiring BIM Modeler / Engineer. Focused on creating efficient, practical design and operational models for modern infrastructure.</p>
+            <!-- Design: The Call to Action button -->
+            <a href="portfolio.html" class="cta-button">View My Portfolio ></a>
+        </div>
 
-        <!-- Quantity Estimation -->
-        <a href="#" class="project-card" target="_blank">
-            <h3>Quantity Estimation & Take-off</h3>
-            <p>Cost estimation and material take-offs using PlanSwift, Bluebeam, and Excel.</p>
-            <span class="card-link-text">📄 View Estimations →</span>
-        </a>
-
-        <h2>Data Operations & Analytics</h2>
-        
-        <!-- Power BI -->
-        <a href="#" class="project-card" target="_blank">
-            <h3>Power BI Dashboards</h3>
-            <p>Operational metrics tracking and reporting dashboards.</p>
-            <span class="card-link-text">📊 View Dashboard Sample →</span>
-        </a>
-    </div>
+        <!-- Design: Circular Profile Photo using renamed profile.jpg -->
+        <div class="profile-photo-container">
+            <img src="profile.jpg" alt="Eleazar Mico Villamor" class="profile-photo">
+        </div>
+    </main>
 </body>
 </html>
