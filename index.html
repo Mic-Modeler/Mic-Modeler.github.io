@@ -100,7 +100,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            /* Ito ang nagce-center sa mukha at katawan mo sa bilog */
             object-position: top center; 
             display: block;
         }
@@ -152,7 +151,7 @@
             margin-bottom: 0;
         }
 
-        /* Contact Modal Box */
+        /* Professional Contact Modal Box */
         .modal {
             display: none;
             position: fixed;
@@ -169,39 +168,70 @@
         .modal-content {
             background-color: #1a1a1a;
             border: 1px solid #38a169;
-            padding: 30px;
+            padding: 35px;
             border-radius: 12px;
-            max-width: 400px;
+            max-width: 480px;
             width: 90%;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.9);
         }
 
         .modal-content h2 {
             margin-top: 0;
             color: #38a169;
+            font-size: 1.8rem;
         }
 
         .contact-info {
-            margin: 20px 0;
+            margin: 25px 0;
             text-align: left;
         }
 
         .contact-info p {
-            margin: 10px 0;
-            color: #ffffff;
+            margin: 12px 0;
+            color: #e0e0e0;
             font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .contact-info strong {
+            color: #ffffff;
+        }
+
+        .contact-info a {
+            color: #38a169;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: rgba(56, 161, 105, 0.2);
+            color: #38a169;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(56, 161, 105, 0.4);
         }
 
         .close-btn {
             background-color: #e53e3e;
             color: white;
             border: none;
-            padding: 10px 20px;
+            padding: 10px 24px;
             border-radius: 6px;
             cursor: pointer;
             font-weight: bold;
             margin-top: 10px;
+            transition: background-color 0.2s;
+        }
+
+        .close-btn:hover {
+            background-color: #c53030;
         }
 
         @media (max-width: 800px) {
@@ -261,13 +291,16 @@
         </div>
     </section>
 
-    <!-- Pop-up Contact Window -->
+    <!-- Professional Contact Modal -->
     <div id="contactModal" class="modal">
         <div class="modal-content">
-            <h2>Contact Information</h2>
+            <h2>Contact Details</h2>
             <div class="contact-info">
-                <p><strong>Mobile:</strong> 09103122262</p>
-                <p><strong>Email:</strong> ce.micovillamor@gmail.com</p>
+                <p><strong>Email:</strong> <a href="mailto:ce.micovillamor@gmail.com">ce.micovillamor@gmail.com</a></p>
+                <p><strong>Mobile / Messaging:</strong> <a href="tel:09103122262">09103122262</a></p>
+                <p><strong>Messaging Apps:</strong> Viber / WhatsApp / Telegram</p>
+                <p><strong>Location:</strong> Quezon City, Metro Manila, Philippines</p>
+                <p><strong>Availability:</strong> <span class="badge">Open for Full-Time Roles</span></p>
             </div>
             <button class="close-btn" onclick="closeContact()">Close</button>
         </div>
