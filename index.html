@@ -13,7 +13,12 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             margin: 0;
             padding: 0;
-            background-color: #121212; 
+            /* Fallback color + Background Image na may dark overlay */
+            background-color: #121212;
+            background-image: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.85)), url('./webbackground.avif');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             color: #ffffff;
             display: flex;
             flex-direction: column;
@@ -21,7 +26,7 @@
         }
 
         header {
-            background-color: #1a1a1a;
+            background-color: rgba(26, 26, 26, 0.9);
             padding: 20px 0;
             width: 100%;
             border-bottom: 1px solid #333;
@@ -83,12 +88,14 @@
             overflow: hidden;
             border: 4px solid #ffffff;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            background-color: #1a1a1a;
         }
 
         .profile-photo {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .cta-button { 
@@ -148,14 +155,11 @@
         <div class="hero-text">
             <h1>Eleazar Mico B. Villamor</h1>
             <p>Civil Engineering Graduate | Aspiring BIM Modeler / Engineer. Focused on creating efficient, practical design and operational models for modern infrastructure.</p>
-            
-            <!-- Direct link papunta sa Google Drive folder mo -->
             <a href="https://drive.google.com/drive/folders/1XjXwcU9agTmntCplXjzcESnkkdB4ukMg?usp=drive_link" target="_blank" class="cta-button">View My Portfolio ></a>
         </div>
 
-        <!-- Inayos ang src gamit ang aktwal na filename ng pic mo (DSC_8250.JPG) -->
         <div class="profile-photo-container">
-            <img src="DSC_8250.JPG" alt="Eleazar Mico Villamor" class="profile-photo">
+            <img src="./DSC_8250.JPG" alt="Eleazar Mico Villamor" class="profile-photo">
         </div>
     </main>
 </body>
