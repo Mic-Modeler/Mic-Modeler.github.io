@@ -7,6 +7,7 @@
     <style>
         *, *::before, *::after {
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body { 
@@ -14,7 +15,7 @@
             margin: 0;
             padding: 0;
             background-color: #121212;
-            background-image: linear-gradient(rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.85)), url('webbackground.avif');
+            background-image: linear-gradient(rgba(18, 18, 18, 0.88), rgba(18, 18, 18, 0.88)), url('webbackground.avif');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -25,10 +26,14 @@
         }
 
         header {
-            background-color: rgba(26, 26, 26, 0.9);
+            background-color: rgba(26, 26, 26, 0.95);
             padding: 20px 0;
             width: 100%;
             border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(5px);
         }
 
         nav ul {
@@ -44,7 +49,7 @@
             text-decoration: none;
             color: #a0a0a0;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             transition: color 0.3s ease;
         }
 
@@ -57,7 +62,7 @@
             justify-content: space-between;
             align-items: center;
             max-width: 1000px;
-            margin: 80px auto;
+            margin: 60px auto 40px auto;
             padding: 0 40px;
             gap: 60px;
         }
@@ -70,6 +75,7 @@
             font-size: 3.5rem;
             margin: 0 0 20px 0;
             color: #ffffff;
+            line-height: 1.1;
         }
 
         p { 
@@ -86,7 +92,7 @@
             border-radius: 50%;
             overflow: hidden;
             border: 4px solid #ffffff;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
             background-color: #1a1a1a;
         }
 
@@ -94,6 +100,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            /* Ito ang nagce-center sa mukha at katawan mo sa bilog */
+            object-position: top center; 
             display: block;
         }
 
@@ -115,11 +123,93 @@
             transform: translateY(-2px);
         }
 
+        /* About Me Section Styling */
+        .section-container {
+            max-width: 1000px;
+            margin: 40px auto 80px auto;
+            padding: 0 40px;
+        }
+
+        .card {
+            background-color: rgba(26, 26, 26, 0.7);
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 40px;
+            backdrop-filter: blur(8px);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #38a169;
+        }
+
+        .card p {
+            color: #e0e0e0;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 0;
+        }
+
+        /* Contact Modal Box */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #1a1a1a;
+            border: 1px solid #38a169;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+        }
+
+        .modal-content h2 {
+            margin-top: 0;
+            color: #38a169;
+        }
+
+        .contact-info {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .contact-info p {
+            margin: 10px 0;
+            color: #ffffff;
+            font-size: 1rem;
+        }
+
+        .close-btn {
+            background-color: #e53e3e;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
         @media (max-width: 800px) {
             .hero {
                 flex-direction: column-reverse;
                 text-align: center;
                 gap: 40px;
+                margin-top: 40px;
             }
 
             nav ul {
@@ -132,8 +222,8 @@
             }
 
             .profile-photo-container {
-                width: 200px;
-                height: 200px;
+                width: 220px;
+                height: 220px;
             }
         }
     </style>
@@ -144,8 +234,8 @@
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#about">About Me</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="https://drive.google.com/drive/folders/1XjXwcU9agTmntCplXjzcESnkkdB4ukMg?usp=drive_link" target="_blank">Projects</a></li>
+                <li><a href="javascript:void(0)" onclick="openContact()">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -161,5 +251,36 @@
             <img src="DSC_8250.JPG" alt="Eleazar Mico Villamor" class="profile-photo">
         </div>
     </main>
+
+    <section id="about" class="section-container">
+        <div class="card">
+            <h2 class="section-title">About Me</h2>
+            <p>
+                Detail-oriented Civil Engineering graduate combining 173+ hours of accredited technical training in Autodesk Revit, BIM-based modeling, AutoCAD, and construction estimation with 5+ years of professional experience in data management and quality control. Proficient in reading architectural, structural, and M&E drawings, quantity estimation using PlanSwift and Bluebeam, and data workflows. Seeking to leverage strong BIM fundamentals, structural modeling training, and analytical background as a Junior BIM Modeler.
+            </p>
+        </div>
+    </section>
+
+    <!-- Pop-up Contact Window -->
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <h2>Contact Information</h2>
+            <div class="contact-info">
+                <p><strong>Mobile:</strong> 09103122262</p>
+                <p><strong>Email:</strong> ce.micovillamor@gmail.com</p>
+            </div>
+            <button class="close-btn" onclick="closeContact()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function openContact() {
+            document.getElementById('contactModal').style.display = 'flex';
+        }
+
+        function closeContact() {
+            document.getElementById('contactModal').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
