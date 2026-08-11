@@ -81,7 +81,7 @@
         p { 
             color: #a0a0a0;
             font-size: 1.1rem;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             line-height: 1.6;
         }
 
@@ -104,22 +104,54 @@
             display: block;
         }
 
+        /* Hero Action Buttons */
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .resume-buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
         .cta-button { 
-            display: inline-block;
-            padding: 15px 40px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
             background-color: #38a169;
             color: #ffffff;
             text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             transition: background-color 0.3s ease, transform 0.2s ease;
             box-shadow: 0 4px 10px rgba(56, 161, 105, 0.4);
+            border: none;
+            cursor: pointer;
         }
 
         .cta-button:hover { 
             background-color: #48bb78;
             transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid #38a169;
+            color: #38a169;
+            box-shadow: none;
+            padding: 10px 20px;
+            font-size: 0.95rem;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(56, 161, 105, 0.15);
+            color: #ffffff;
         }
 
         .section-container {
@@ -238,7 +270,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
+            background-color: rgba(0, 0, 0, 0.85);
             z-index: 1000;
             justify-content: center;
             align-items: center;
@@ -255,10 +287,22 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.9);
         }
 
-        .modal-content h2 {
-            margin-top: 0;
-            color: #38a169;
-            font-size: 1.8rem;
+        .pdf-modal-content {
+            max-width: 900px;
+            width: 90%;
+            height: 85vh;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .pdf-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+            margin-top: 15px;
+            background-color: #ffffff;
         }
 
         .contact-info {
@@ -303,6 +347,7 @@
             font-weight: bold;
             margin-top: 10px;
             transition: background-color 0.2s;
+            align-self: center;
         }
 
         .close-btn:hover {
@@ -315,6 +360,14 @@
                 text-align: center;
                 gap: 40px;
                 margin-top: 40px;
+            }
+
+            .cta-container {
+                align-items: center;
+            }
+
+            .resume-buttons {
+                justify-content: center;
             }
 
             nav ul {
@@ -353,7 +406,21 @@
         <div class="hero-text">
             <h1>Eleazar Mico B. Villamor</h1>
             <p>Civil Engineering Graduate | Aspiring BIM Modeler / Engineer. Focused on creating efficient, practical design and operational models for modern infrastructure.</p>
-            <a href="https://drive.google.com/drive/folders/1XjXwcU9agTmntCplXjzcESnkkdB4ukMg?usp=drive_link" target="_blank" class="cta-button">View My Portfolio ></a>
+            
+            <div class="cta-container">
+                <a href="https://drive.google.com/drive/folders/1XjXwcU9agTmntCplXjzcESnkkdB4ukMg?usp=drive_link" target="_blank" class="cta-button">
+                    📁 View My Portfolio &gt;
+                </a>
+                
+                <div class="resume-buttons">
+                    <button class="cta-button btn-outline" onclick="openPdfModal()">
+                        📄 Preview CV
+                    </button>
+                    <a href="Villamor_Eleazar_Mico_B.pdf" download="Villamor_Eleazar_Mico_B.pdf" class="cta-button btn-outline">
+                        📥 Download CV
+                    </a>
+                </div>
+            </div>
         </div>
 
         <div class="profile-photo-container">
@@ -412,6 +479,17 @@
         </div>
     </div>
 
+    <!-- PDF Preview Modal -->
+    <div id="pdfModal" class="modal">
+        <div class="modal-content pdf-modal-content">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h3 style="margin: 0; color: #38a169;">Curriculum Vitae / Resume</h3>
+                <button class="close-btn" onclick="closePdfModal()" style="margin: 0; padding: 5px 15px;">✕ Close</button>
+            </div>
+            <iframe src="Villamor_Eleazar_Mico_B.pdf" class="pdf-frame"></iframe>
+        </div>
+    </div>
+
     <script>
         // Contact Modal Logic
         function openContact() {
@@ -420,6 +498,15 @@
 
         function closeContact() {
             document.getElementById('contactModal').style.display = 'none';
+        }
+
+        // PDF Modal Logic
+        function openPdfModal() {
+            document.getElementById('pdfModal').style.display = 'flex';
+        }
+
+        function closePdfModal() {
+            document.getElementById('pdfModal').style.display = 'none';
         }
 
         // Slider Logic
