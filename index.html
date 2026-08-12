@@ -91,11 +91,35 @@
             flex: 1;
         }
 
+        /* --- HELLO BADGE --- */
+        .greeting-tag {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #38a169;
+            margin-bottom: 8px;
+            opacity: 0;
+            animation: slideInFromLeft 0.8s ease-out forwards;
+        }
+
+        /* --- POP-UP / SLIDE-IN NAME ANIMATION --- */
         h1 { 
             font-size: 3.5rem;
             margin: 0 0 20px 0;
             color: #ffffff;
             line-height: 1.1;
+            opacity: 0;
+            animation: slideInFromLeft 0.9s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
+        }
+
+        @keyframes slideInFromLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         p { 
@@ -532,6 +556,7 @@
 
     <main class="hero">
         <div class="hero-text">
+            <div class="greeting-tag">Hi, I'm</div>
             <h1>Eleazar Mico B. Villamor</h1>
             <p>Civil Engineering Graduate | Aspiring BIM Modeler / Engineer. Focused on creating efficient, practical design and operational models for modern infrastructure.</p>
             
