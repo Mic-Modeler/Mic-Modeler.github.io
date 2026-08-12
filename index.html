@@ -241,27 +241,31 @@
             margin: 25px 0;
         }
 
-        /* Floating Software Cards Grid */
+        /* Horizontal Software Cards Flexbox Layout */
         .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-            gap: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
             margin-top: 25px;
         }
 
         .tool-box {
             background: rgba(35, 35, 35, 0.8);
-            border: 1px solid #38a169;
+            border: 1px solid #333;
             border-radius: 10px;
-            padding: 20px 15px;
+            padding: 15px 20px;
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 8px;
+            min-width: 110px;
+            flex: 1 1 120px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, border-color 0.3s ease;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             animation: float 4s ease-in-out infinite;
         }
 
@@ -274,20 +278,29 @@
         }
 
         .tool-box:hover {
-            border-color: #48bb78;
+            border-color: #ffffff;
             transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 8px 20px rgba(56, 161, 105, 0.3);
+            box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
         }
 
         .tool-box i {
             font-size: 2.2rem;
-            color: #38a169;
         }
 
+        /* Original Brand Colors */
+        .icon-revit { color: #0696D7; }
+        .icon-autocad { color: #E5112B; }
+        .icon-airtable { color: #FCB400; }
+        .icon-sheets { color: #0F9D58; }
+        .icon-github { color: #ffffff; }
+        .icon-looker { color: #4285F4; }
+        .icon-office { color: #F25022; }
+
         .tool-name {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 600;
             color: #ffffff;
+            white-space: nowrap;
         }
 
         @keyframes float {
@@ -580,31 +593,31 @@
             <h2 class="section-title">🛠️ Tools & Software Proficiency</h2>
             <div class="tools-grid">
                 <div class="tool-box">
-                    <i class="fa-solid fa-cube"></i>
+                    <i class="fa-solid fa-cube icon-revit"></i>
                     <span class="tool-name">Autodesk Revit</span>
                 </div>
                 <div class="tool-box">
-                    <i class="fa-solid fa-drafting-compass"></i>
+                    <i class="fa-solid fa-drafting-compass icon-autocad"></i>
                     <span class="tool-name">AutoCAD</span>
                 </div>
                 <div class="tool-box">
-                    <i class="fa-solid fa-table-cells"></i>
+                    <i class="fa-solid fa-table-cells icon-airtable"></i>
                     <span class="tool-name">Airtable</span>
                 </div>
                 <div class="tool-box">
-                    <i class="fa-solid fa-file-excel"></i>
+                    <i class="fa-solid fa-file-excel icon-sheets"></i>
                     <span class="tool-name">Google Sheets</span>
                 </div>
                 <div class="tool-box">
-                    <i class="fa-brands fa-github"></i>
+                    <i class="fa-brands fa-github icon-github"></i>
                     <span class="tool-name">GitHub</span>
                 </div>
                 <div class="tool-box">
-                    <i class="fa-solid fa-chart-pie"></i>
+                    <i class="fa-solid fa-chart-pie icon-looker"></i>
                     <span class="tool-name">Looker Studio</span>
                 </div>
                 <div class="tool-box">
-                    <i class="fa-brands fa-microsoft"></i>
+                    <i class="fa-brands fa-microsoft icon-office"></i>
                     <span class="tool-name">MS Office</span>
                 </div>
             </div>
