@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eleazar Mico Villamor | Portfolio</title>
+    <!-- FontAwesome for Tech Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         *, *::before, *::after {
             box-sizing: border-box;
@@ -27,7 +29,7 @@
 
         header {
             background-color: rgba(26, 26, 26, 0.95);
-            padding: 20px 0;
+            padding: 15px 0;
             width: 100%;
             border-bottom: 1px solid #333;
             position: sticky;
@@ -42,7 +44,8 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            gap: 30px;
+            align-items: center;
+            gap: 25px;
         }
 
         nav a {
@@ -50,11 +53,28 @@
             color: #a0a0a0;
             font-weight: 500;
             font-size: 0.95rem;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         nav a:hover {
             color: #ffffff;
+        }
+
+        /* Pill Style for Home Nav Item */
+        nav a.nav-home-pill {
+            background-color: #ffffff;
+            color: #121212;
+            padding: 6px 18px;
+            border-radius: 20px;
+            font-weight: 700;
+        }
+
+        nav a.nav-home-pill:hover {
+            background-color: #e0e0e0;
+            color: #000000;
         }
 
         .hero {
@@ -173,6 +193,9 @@
             margin-top: 0;
             margin-bottom: 20px;
             color: #38a169;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .card p {
@@ -180,6 +203,97 @@
             font-size: 1.05rem;
             line-height: 1.8;
             margin-bottom: 0;
+        }
+
+        /* Education Styles */
+        .education-level {
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #38a169;
+            font-weight: bold;
+        }
+
+        .education-item {
+            border-left: 3px solid #38a169;
+            padding-left: 20px;
+            margin-bottom: 10px;
+        }
+
+        .education-degree {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .education-school {
+            color: #a0a0a0;
+            font-size: 1rem;
+        }
+
+        .education-divider {
+            border: 0;
+            height: 1px;
+            background: #333333;
+            margin: 25px 0;
+        }
+
+        /* Floating Software Cards Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .tool-box {
+            background: rgba(35, 35, 35, 0.8);
+            border: 1px solid #38a169;
+            border-radius: 10px;
+            padding: 20px 15px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .tool-box:nth-child(even) {
+            animation-delay: 1.5s;
+        }
+
+        .tool-box:nth-child(3n) {
+            animation-delay: 0.8s;
+        }
+
+        .tool-box:hover {
+            border-color: #48bb78;
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(56, 161, 105, 0.3);
+        }
+
+        .tool-box i {
+            font-size: 2.2rem;
+            color: #38a169;
+        }
+
+        .tool-name {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
         }
 
         /* --- FEATURED PROJECTS CAROUSEL STYLES --- */
@@ -394,7 +508,8 @@
     <header>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="#" class="nav-home-pill">🏠 HOME</a></li>
+                <li><a href="#education">🎓 Education</a></li>
                 <li><a href="#about">About Me</a></li>
                 <li><a href="#projects">Featured Projects</a></li>
                 <li><a href="javascript:void(0)" onclick="openContact()">Contact</a></li>
@@ -428,6 +543,28 @@
         </div>
     </main>
 
+    <!-- EDUCATION SECTION -->
+    <section id="education" class="section-container">
+        <div class="card">
+            <h2 class="section-title">🎓 Education</h2>
+            
+            <div class="education-level">College</div>
+            <div class="education-item">
+                <div class="education-degree">Bachelor of Science in Civil Engineering</div>
+                <div class="education-school">The University of Manila (SY: 2015 – 2020)</div>
+            </div>
+
+            <hr class="education-divider">
+
+            <div class="education-level">High School</div>
+            <div class="education-item">
+                <div class="education-degree">Southville 8B National High School</div>
+                <div class="education-school">SY: 2011 – 2015</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT ME SECTION -->
     <section id="about" class="section-container">
         <div class="card">
             <h2 class="section-title">About Me</h2>
@@ -437,9 +574,46 @@
         </div>
     </section>
 
+    <!-- TOOLS & PLATFORMS SECTION -->
+    <section class="section-container">
+        <div class="card">
+            <h2 class="section-title">🛠️ Tools & Software Proficiency</h2>
+            <div class="tools-grid">
+                <div class="tool-box">
+                    <i class="fa-solid fa-cube"></i>
+                    <span class="tool-name">Autodesk Revit</span>
+                </div>
+                <div class="tool-box">
+                    <i class="fa-solid fa-drafting-compass"></i>
+                    <span class="tool-name">AutoCAD</span>
+                </div>
+                <div class="tool-box">
+                    <i class="fa-solid fa-table-cells"></i>
+                    <span class="tool-name">Airtable</span>
+                </div>
+                <div class="tool-box">
+                    <i class="fa-solid fa-file-excel"></i>
+                    <span class="tool-name">Google Sheets</span>
+                </div>
+                <div class="tool-box">
+                    <i class="fa-brands fa-github"></i>
+                    <span class="tool-name">GitHub</span>
+                </div>
+                <div class="tool-box">
+                    <i class="fa-solid fa-chart-pie"></i>
+                    <span class="tool-name">Looker Studio</span>
+                </div>
+                <div class="tool-box">
+                    <i class="fa-brands fa-microsoft"></i>
+                    <span class="tool-name">MS Office</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- FEATURED PROJECTS SECTION -->
     <section id="projects" class="section-container" style="margin-bottom: 80px;">
-        <h2 class="section-title" style="text-align: center; margin-bottom: 25px;">Featured Projects</h2>
+        <h2 class="section-title" style="justify-content: center; margin-bottom: 25px;">Featured Projects</h2>
         <div class="slider-container">
             <button class="prev-btn" onclick="moveSlide(-1)">&#10094;</button>
             <button class="next-btn" onclick="moveSlide(1)">&#10095;</button>
