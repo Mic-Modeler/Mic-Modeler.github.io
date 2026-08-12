@@ -721,6 +721,21 @@
             document.getElementById('pdfModal').style.display = 'none';
         }
 
+        // Close modals when clicking outside content or pressing Escape key
+        window.onclick = function(event) {
+            const contactModal = document.getElementById('contactModal');
+            const pdfModal = document.getElementById('pdfModal');
+            if (event.target === contactModal) closeContact();
+            if (event.target === pdfModal) closePdfModal();
+        };
+
+        window.onkeydown = function(event) {
+            if (event.key === "Escape") {
+                closeContact();
+                closePdfModal();
+            }
+        };
+
         // Slider Logic
         let currentIndex = 0;
         const slides = document.querySelectorAll('.slide');
