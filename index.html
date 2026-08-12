@@ -198,6 +198,7 @@
             max-width: 1000px;
             margin: 40px auto;
             padding: 0 40px;
+            scroll-margin-top: 90px; /* Fixes navigation offset overlap */
         }
 
         .card {
@@ -354,6 +355,7 @@
         .icon-github { color: #ffffff; }
         .icon-looker { color: #4285F4; }
         .icon-office { color: #F25022; }
+        .icon-powerbi { color: #F2C811; }
 
         .tool-name {
             font-size: 0.85rem;
@@ -591,8 +593,9 @@
         <nav>
             <ul>
                 <li><a href="#" class="nav-home-pill">🏠 HOME</a></li>
-                <li><a href="#education">🎓 Education & Skills</a></li>
                 <li><a href="#about">About Me</a></li>
+                <li><a href="#education">🎓 Education & Skills</a></li>
+                <li><a href="#tools">🛠️ Tools & Software</a></li>
                 <li><a href="#projects">Featured Projects</a></li>
                 <li><a href="javascript:void(0)" onclick="openContact()">Contact</a></li>
             </ul>
@@ -626,7 +629,17 @@
         </div>
     </main>
 
-    <!-- EDUCATION & SKILLS SECTION (2-COLUMN BALANCED LAYOUT) -->
+    <!-- 1. ABOUT ME SECTION -->
+    <section id="about" class="section-container">
+        <div class="card">
+            <h2 class="section-title">About Me</h2>
+            <p style="margin-bottom: 0;">
+                Detail-oriented Civil Engineering graduate combining 173+ hours of accredited technical training in Autodesk Revit, BIM-based modeling, AutoCAD, and construction estimation with 5+ years of professional experience in data management and quality control. Proficient in reading architectural, structural, and M&E drawings, quantity estimation using PlanSwift and Bluebeam, and data workflows. Seeking to leverage strong BIM fundamentals, structural modeling training, and analytical background as a Junior BIM Modeler.
+            </p>
+        </div>
+    </section>
+
+    <!-- 2. EDUCATION & SKILLS SECTION (2-COLUMN BALANCED LAYOUT) -->
     <section id="education" class="section-container">
         <div class="card split-card">
             <!-- LEFT COLUMN: Education -->
@@ -666,8 +679,8 @@
         </div>
     </section>
 
-    <!-- TOOLS & PLATFORMS SECTION (AS IS) -->
-    <section class="section-container">
+    <!-- 3. TOOLS & PLATFORMS SECTION -->
+    <section id="tools" class="section-container">
         <div class="card">
             <h2 class="section-title">🛠️ Tools & Software Proficiency</h2>
             <div class="tools-grid">
@@ -678,6 +691,10 @@
                 <div class="tool-box">
                     <i class="fa-solid fa-drafting-compass icon-autocad"></i>
                     <span class="tool-name">AutoCAD</span>
+                </div>
+                <div class="tool-box">
+                    <i class="fa-solid fa-chart-column icon-powerbi"></i>
+                    <span class="tool-name">Power BI</span>
                 </div>
                 <div class="tool-box">
                     <i class="fa-solid fa-table-cells icon-airtable"></i>
@@ -700,16 +717,6 @@
                     <span class="tool-name">MS Office</span>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- ABOUT ME SECTION -->
-    <section id="about" class="section-container">
-        <div class="card">
-            <h2 class="section-title">About Me</h2>
-            <p>
-                Detail-oriented Civil Engineering graduate combining 173+ hours of accredited technical training in Autodesk Revit, BIM-based modeling, AutoCAD, and construction estimation with 5+ years of professional experience in data management and quality control. Proficient in reading architectural, structural, and M&E drawings, quantity estimation using PlanSwift and Bluebeam, and data workflows. Seeking to leverage strong BIM fundamentals, structural modeling training, and analytical background as a Junior BIM Modeler.
-            </p>
         </div>
     </section>
 
