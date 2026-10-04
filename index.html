@@ -508,7 +508,7 @@
         }
 
         .dot {
-            width: 10px;
+            width: 100px;
             height: 10px;
             background-color: rgba(255, 255, 255, 0.4);
             border-radius: 50%;
@@ -869,33 +869,67 @@
         </div>
     </section>
 
-    <!-- Contact Modal -->
-    <div id="contactModal" class="modal" onclick="handleModalClick(event, 'contactModal')">
+    <!-- CONTACT MODAL -->
+    <div id="contactModal" class="modal">
         <div class="modal-content">
-            <h2 style="margin-top: 0; color: #38a169;">Contact Details</h2>
+            <h2 class="section-title" style="justify-content: center; margin-bottom: 15px;">
+                <i class="fa-solid fa-envelope"></i> Contact Information
+            </h2>
             <div class="contact-info">
-                <p><i class="fa-solid fa-envelope"></i> <strong>Email:</strong> <a href="mailto:ce.micovillamor@gmail.com">ce.micovillamor@gmail.com</a></p>
-                <p><i class="fa-solid fa-phone"></i> <strong>Mobile:</strong> <a href="tel:09103122262">09103122262</a></p>
-                <p><i class="fa-solid fa-comments"></i> <strong>Apps:</strong> Viber / WhatsApp / Telegram</p>
-                <p><i class="fa-solid fa-location-dot"></i> <strong>Location:</strong> Quezon City, Metro Manila, Philippines</p>
-                <p><i class="fa-solid fa-briefcase"></i> <strong>Status:</strong> <span class="badge">Open for Full-Time Roles</span></p>
+                <p><i class="fa-solid fa-envelope"></i> <strong>Email:</strong> <a href="mailto:eleazarmico.villamor@gmail.com">eleazarmico.villamor@gmail.com</a></p>
+                <p><i class="fa-solid fa-phone"></i> <strong>Phone:</strong> +63 912 345 6789</p>
+                <p><i class="fa-solid fa-location-dot"></i> <strong>Location:</strong> Metro Manila, Philippines</p>
+                <p><i class="fa-brands fa-linkedin"></i> <strong>LinkedIn:</strong> <a href="#" target="_blank">Connect on LinkedIn</a></p>
             </div>
             <button class="close-btn" onclick="closeContact()">Close</button>
         </div>
     </div>
 
-    <!-- PDF Preview Modal -->
-    <div id="pdfModal" class="modal" onclick="handleModalClick(event, 'pdfModal')">
+    <!-- PDF PREVIEW MODAL -->
+    <div id="pdfModal" class="modal">
         <div class="modal-content pdf-modal-content">
-            <div style="display: flex; justify-content: space-between; align-items: center;">
-                <h3 style="margin: 0; color: #38a169;"><i class="fa-regular fa-file-pdf"></i> Curriculum Vitae / Resume</h3>
-                <button class="close-btn" onclick="closePdfModal()" style="margin: 0; padding: 6px 14px;">✕ Close</button>
+            <h2 class="section-title" style="justify-content: space-between; margin-bottom: 10px;">
+                <span><i class="fa-regular fa-file-pdf"></i> Curriculum Vitae Preview</span>
+                <span class="badge">PDF</span>
+            </h2>
+            <iframe src="image_6c75ea.png" class="pdf-frame" title="CV Preview"></iframe>
+            <div style="margin-top: 15px;">
+                <button class="close-btn" onclick="closePdfModal()">Close Preview</button>
             </div>
-            <iframe src="image_6c75ea.png" class="pdf-frame" title="Resume Preview"></iframe>
         </div>
     </div>
 
+    <!-- JAVASCRIPT FOR INTERACTIVITY -->
     <script>
+        /* --- SLIDER / CAROUSEL SCRIPT --- */
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+        const sliderWrapper = document.getElementById('sliderWrapper');
+        const dots = document.querySelectorAll('.dot');
+
+        function updateSlider() {
+            sliderWrapper.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlideIndex);
+            });
+        }
+
+        function moveSlide(direction) {
+            currentSlideIndex += direction;
+            if (currentSlideIndex >= slides.length) {
+                currentSlideIndex = 0;
+            } else if (currentSlideIndex < 0) {
+                currentSlideIndex = slides.length - 1;
+            }
+            updateSlider();
+        }
+
+        function currentSlide(index) {
+            currentSlideIndex = index;
+            updateSlider();
+        }
+
+        /* --- MODALS SCRIPT --- */
         function openContact() {
             document.getElementById('contactModal').style.display = 'flex';
         }
@@ -912,48 +946,17 @@
             document.getElementById('pdfModal').style.display = 'none';
         }
 
-        // Close modal when clicking outside the content box
-        function handleModalClick(event, modalId) {
-            if (event.target.id === modalId) {
-                document.getElementById(modalId).style.display = 'none';
-            }
-        }
-
-        // Slider Logic
-        let currentIndex = 0;
-        const slides = document.querySelectorAll('.slide');
-        const dots = document.querySelectorAll('.dot');
-        const sliderWrapper = document.getElementById('sliderWrapper');
-
-        function updateSlider() {
-            sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentIndex);
-            });
-        }
-
-        function moveSlide(direction) {
-            currentIndex += direction;
-            if (currentIndex < 0) {
-                currentIndex = slides.length - 1;
-            } else if (currentIndex >= slides.length) {
-                currentIndex = 0;
-            }
-            updateSlider();
-        }
-
-        function currentSlide(index) {
-            currentIndex = index;
-            updateSlider();
-        }
-
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
+        // Close modal when clicking outside the modal content
+        window.onclick = function(event) {
+            const contactModal = document.getElementById('contactModal');
+            const pdfModal = document.getElementById('pdfModal');
+            if (event.target === contactModal) {
                 closeContact();
+            }
+            if (event.target === pdfModal) {
                 closePdfModal();
             }
-        });
+        };
     </script>
 </body>
 </html>
