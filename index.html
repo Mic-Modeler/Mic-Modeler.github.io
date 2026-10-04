@@ -438,7 +438,7 @@
         /* --- CAROUSEL STYLES --- */
         .slider-container {
             position: relative;
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
             overflow: hidden;
             border-radius: 14px;
@@ -455,14 +455,20 @@
 
         .slide {
             min-width: 100%;
-            height: 480px;
+            height: auto;
+            max-height: 550px;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #0f1115;
         }
 
         .slide img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            max-height: 550px;
+            object-fit: contain;
             display: block;
         }
 
@@ -508,8 +514,8 @@
         }
 
         .dot {
-            width: 100px;
-            height: 10px;
+            width: 12px;
+            height: 12px;
             background-color: rgba(255, 255, 255, 0.4);
             border-radius: 50%;
             cursor: pointer;
@@ -518,7 +524,7 @@
 
         .dot.active {
             background-color: #38a169;
-            width: 26px;
+            width: 28px;
             border-radius: 6px;
         }
 
@@ -744,7 +750,7 @@
                     <button class="cta-button btn-outline" onclick="openPdfModal()">
                         <i class="fa-regular fa-file-pdf"></i> Preview CV
                     </button>
-                    <a href="image_6c75ea.png" download="Villamor_Eleazar_Mico_B.pdf" class="cta-button btn-outline">
+                    <a href="Villamor_Eleazar_Mico_B_Site_Engineer_CV.pdf" download="Villamor_Eleazar_Mico_B_Site_Engineer_CV.pdf" class="cta-button btn-outline">
                         <i class="fa-solid fa-download"></i> Download CV
                     </a>
                 </div>
@@ -855,10 +861,10 @@
             
             <div class="slider-wrapper" id="sliderWrapper">
                 <div class="slide">
-                    <img src="image_6c6ac0.jpg" alt="Featured Project 1">
+                    <img src="image_6c6ac0.jpg" alt="Featured Project 1" onerror="this.onerror=null; this.src='image_6c6ac0.png';">
                 </div>
                 <div class="slide">
-                    <img src="image_6c6b3f.png" alt="Featured Project 2">
+                    <img src="image_6c6b3f.png" alt="Featured Project 2" onerror="this.onerror=null; this.src='image_6c6b3f.jpg';">
                 </div>
             </div>
 
@@ -892,7 +898,7 @@
                 <span><i class="fa-regular fa-file-pdf"></i> Curriculum Vitae Preview</span>
                 <span class="badge">PDF</span>
             </h2>
-            <iframe src="image_6c75ea.png" class="pdf-frame" title="CV Preview"></iframe>
+            <iframe src="Villamor_Eleazar_Mico_B_Site_Engineer_CV.pdf" class="pdf-frame" title="CV Preview"></iframe>
             <div style="margin-top: 15px;">
                 <button class="close-btn" onclick="closePdfModal()">Close Preview</button>
             </div>
