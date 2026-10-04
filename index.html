@@ -435,100 +435,6 @@
             100% { transform: translateY(0px); }
         }
 
-        /* --- FIXED CAROUSEL / SLIDER STYLES --- */
-        .slider-container {
-            position: relative;
-            max-width: 900px;
-            width: 100%;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 14px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            background-color: #161b22;
-            min-height: 400px;
-        }
-
-        .slider-wrapper {
-            display: flex;
-            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-            width: 100%;
-            height: 100%;
-        }
-
-        .slide {
-            min-width: 100%;
-            height: 450px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #0f1115;
-        }
-
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-        }
-
-        .prev-btn, .next-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(15, 17, 21, 0.75);
-            color: #ffffff;
-            border: 1px solid rgba(56, 161, 105, 0.5);
-            font-size: 1.2rem;
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            border-radius: 50%;
-            transition: all 0.25s ease;
-            z-index: 10;
-            user-select: none;
-            backdrop-filter: blur(4px);
-        }
-
-        .prev-btn:hover, .next-btn:hover {
-            background-color: #38a169;
-            color: #ffffff;
-            border-color: #38a169;
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .prev-btn { left: 20px; }
-        .next-btn { right: 20px; }
-
-        .dots-container {
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 10;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            background-color: rgba(255, 255, 255, 0.4);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .dot.active {
-            background-color: #38a169;
-            width: 28px;
-            border-radius: 6px;
-        }
-
         /* --- MODALS --- */
         .modal {
             display: none;
@@ -701,10 +607,6 @@
                 padding: 25px 20px;
             }
 
-            .slide {
-                height: 300px;
-            }
-
             .split-card {
                 grid-template-columns: 1fr;
                 gap: 25px;
@@ -730,7 +632,6 @@
                 <li><a href="#about">About Me</a></li>
                 <li><a href="#education">Education & Skills</a></li>
                 <li><a href="#tools">Tools & Software</a></li>
-                <li><a href="#projects">Featured Projects</a></li>
                 <li><a href="javascript:void(0)" onclick="openContact()">Contact</a></li>
             </ul>
         </nav>
@@ -811,7 +712,7 @@
     </section>
 
     <!-- 3. TOOLS & PLATFORMS SECTION -->
-    <section id="tools" class="section-container">
+    <section id="tools" class="section-container" style="margin-bottom: 60px;">
         <div class="card">
             <h2 class="section-title"><i class="fa-solid fa-wrench"></i> Tools & Software Proficiency</h2>
             <div class="tools-grid">
@@ -851,31 +752,6 @@
         </div>
     </section>
 
-    <!-- FEATURED PROJECTS SECTION -->
-    <section id="projects" class="section-container" style="margin-bottom: 80px;">
-        <h2 class="section-title" style="justify-content: center; margin-bottom: 25px;">
-            <i class="fa-solid fa-layer-group"></i> Featured Projects
-        </h2>
-        <div class="slider-container">
-            <button class="prev-btn" onclick="moveSlide(-1)" aria-label="Previous Slide"><i class="fa-solid fa-chevron-left"></i></button>
-            <button class="next-btn" onclick="moveSlide(1)" aria-label="Next Slide"><i class="fa-solid fa-chevron-right"></i></button>
-            
-            <div class="slider-wrapper" id="sliderWrapper">
-                <div class="slide">
-                    <img src="image_6c6ac0.jpg" alt="Featured Project 1" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x450/1a1f2c/38a169?text=Project+1+Image+Not+Found';">
-                </div>
-                <div class="slide">
-                    <img src="image_6c6b3f.png" alt="Featured Project 2" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x450/1a1f2c/38a169?text=Project+2+Image+Not+Found';">
-                </div>
-            </div>
-
-            <div class="dots-container">
-                <span class="dot active" onclick="currentSlide(0)"></span>
-                <span class="dot" onclick="currentSlide(1)"></span>
-            </div>
-        </div>
-    </section>
-
     <!-- CONTACT MODAL -->
     <div id="contactModal" class="modal">
         <div class="modal-content">
@@ -908,34 +784,6 @@
 
     <!-- JAVASCRIPT FOR INTERACTIVITY -->
     <script>
-        /* --- SLIDER / CAROUSEL SCRIPT --- */
-        let currentSlideIndex = 0;
-        const slides = document.querySelectorAll('.slide');
-        const sliderWrapper = document.getElementById('sliderWrapper');
-        const dots = document.querySelectorAll('.dot');
-
-        function updateSlider() {
-            sliderWrapper.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlideIndex);
-            });
-        }
-
-        function moveSlide(direction) {
-            currentSlideIndex += direction;
-            if (currentSlideIndex >= slides.length) {
-                currentSlideIndex = 0;
-            } else if (currentSlideIndex < 0) {
-                currentSlideIndex = slides.length - 1;
-            }
-            updateSlider();
-        }
-
-        function currentSlide(index) {
-            currentSlideIndex = index;
-            updateSlider();
-        }
-
         /* --- MODALS SCRIPT --- */
         function openContact() {
             document.getElementById('contactModal').style.display = 'flex';
