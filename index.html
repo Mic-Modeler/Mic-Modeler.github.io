@@ -435,28 +435,30 @@
             100% { transform: translateY(0px); }
         }
 
-        /* --- CAROUSEL STYLES --- */
+        /* --- FIXED CAROUSEL / SLIDER STYLES --- */
         .slider-container {
             position: relative;
             max-width: 900px;
+            width: 100%;
             margin: 0 auto;
             overflow: hidden;
             border-radius: 14px;
             border: 1px solid rgba(255, 255, 255, 0.08);
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             background-color: #161b22;
+            min-height: 400px;
         }
 
         .slider-wrapper {
             display: flex;
             transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
             width: 100%;
+            height: 100%;
         }
 
         .slide {
             min-width: 100%;
-            height: auto;
-            max-height: 550px;
+            height: 450px;
             position: relative;
             display: flex;
             align-items: center;
@@ -467,7 +469,6 @@
         .slide img {
             width: 100%;
             height: 100%;
-            max-height: 550px;
             object-fit: contain;
             display: block;
         }
@@ -861,10 +862,10 @@
             
             <div class="slider-wrapper" id="sliderWrapper">
                 <div class="slide">
-                    <img src="image_6c6ac0.jpg" alt="Featured Project 1" onerror="this.onerror=null; this.src='image_6c6ac0.png';">
+                    <img src="image_6c6ac0.jpg" alt="Featured Project 1" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x450/1a1f2c/38a169?text=Project+1+Image+Not+Found';">
                 </div>
                 <div class="slide">
-                    <img src="image_6c6b3f.png" alt="Featured Project 2" onerror="this.onerror=null; this.src='image_6c6b3f.jpg';">
+                    <img src="image_6c6b3f.png" alt="Featured Project 2" onerror="this.onerror=null; this.src='https://via.placeholder.com/800x450/1a1f2c/38a169?text=Project+2+Image+Not+Found';">
                 </div>
             </div>
 
