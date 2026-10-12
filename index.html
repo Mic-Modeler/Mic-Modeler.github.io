@@ -207,20 +207,16 @@
         .cta-container {
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 12px;
             align-items: flex-start;
+            max-width: 480px;
+            width: 100%;
         }
 
-        .portfolio-buttons-row {
+        .portfolio-buttons-row, .resume-buttons {
             display: flex;
             gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .resume-buttons {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
+            width: 100%;
         }
 
         .cta-button { 
@@ -228,7 +224,7 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            padding: 13px 24px;
+            padding: 12px 20px;
             background-color: #38a169;
             color: #ffffff;
             text-decoration: none;
@@ -239,6 +235,9 @@
             box-shadow: 0 4px 14px rgba(56, 161, 105, 0.35);
             border: none;
             cursor: pointer;
+            flex: 1;
+            text-align: center;
+            white-space: nowrap;
         }
 
         .cta-button:hover { 
@@ -262,8 +261,6 @@
             border: 1px solid rgba(56, 161, 105, 0.6);
             color: #38a169;
             box-shadow: none;
-            padding: 10px 20px;
-            font-size: 0.92rem;
         }
 
         .btn-outline:hover {
@@ -782,8 +779,8 @@
                 <i class="fa-solid fa-envelope"></i> Contact Information
             </h2>
             <div class="contact-info">
-                <p><i class="fa-solid fa-envelope"></i> <strong>Email:</strong> <a href="mailto:eleazarmico.villamor@gmail.com">eleazarmico.villamor@gmail.com</a></p>
-                <p><i class="fa-solid fa-phone"></i> <strong>Phone:</strong> +63 912 345 6789</p>
+                <p><i class="fa-solid fa-envelope"></i> <strong>Email:</strong> <a href="mailto:ce.micovillamor@gmail.com">ce.micovillamor@gmail.com</a></p>
+                <p><i class="fa-solid fa-phone"></i> <strong>Phone:</strong> 09103122262</p>
                 <p><i class="fa-solid fa-location-dot"></i> <strong>Location:</strong> Metro Manila, Philippines</p>
                 <p><i class="fa-brands fa-linkedin"></i> <strong>LinkedIn:</strong> <a href="#" target="_blank">Connect on LinkedIn</a></p>
             </div>
