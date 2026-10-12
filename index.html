@@ -211,6 +211,12 @@
             align-items: flex-start;
         }
 
+        .portfolio-buttons-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
         .resume-buttons {
             display: flex;
             gap: 12px;
@@ -222,13 +228,13 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            padding: 13px 28px;
+            padding: 13px 24px;
             background-color: #38a169;
             color: #ffffff;
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: all 0.25s ease;
             box-shadow: 0 4px 14px rgba(56, 161, 105, 0.35);
             border: none;
@@ -239,6 +245,16 @@
             background-color: #48bb78;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(56, 161, 105, 0.5);
+        }
+
+        .btn-certificates {
+            background-color: #2b6cb0;
+            box-shadow: 0 4px 14px rgba(43, 108, 176, 0.35);
+        }
+
+        .btn-certificates:hover {
+            background-color: #3182ce;
+            box-shadow: 0 6px 20px rgba(43, 108, 176, 0.5);
         }
 
         .btn-outline {
@@ -585,7 +601,7 @@
                 align-items: center;
             }
 
-            .resume-buttons {
+            .portfolio-buttons-row, .resume-buttons {
                 justify-content: center;
             }
 
@@ -644,10 +660,17 @@
             <p class="hero-description">Civil Engineering Graduate | Aspiring BIM Modeler / Engineer. Focused on creating efficient, practical design and operational models for modern infrastructure.</p>
             
             <div class="cta-container">
-                <a href="https://drive.google.com/drive/folders/1XjXwcU9agTmntCplXjzcESnkkdB4ukMg?usp=drive_link" target="_blank" rel="noopener noreferrer" class="cta-button">
-                    <i class="fa-solid fa-folder-open"></i> View My Portfolio
-                </a>
+                <!-- TOP ROW: Portfolio and Certificates Google Drive Buttons -->
+                <div class="portfolio-buttons-row">
+                    <a href="https://drive.google.com/drive/folders/1XjXwcU9agTmntCplXjzcESnkkdB4ukMg?usp=drive_link" target="_blank" rel="noopener noreferrer" class="cta-button">
+                        <i class="fa-solid fa-folder-open"></i> View My Portfolio
+                    </a>
+                    <a href="https://drive.google.com/drive/folders/12xyNg-CXxMl36B6hEPvXG1QbZl9OARqQ" target="_blank" rel="noopener noreferrer" class="cta-button btn-certificates">
+                        <i class="fa-solid fa-award"></i> View Certificates
+                    </a>
+                </div>
                 
+                <!-- BOTTOM ROW: CV Actions -->
                 <div class="resume-buttons">
                     <button class="cta-button btn-outline" onclick="openPdfModal()">
                         <i class="fa-regular fa-file-pdf"></i> Preview CV
